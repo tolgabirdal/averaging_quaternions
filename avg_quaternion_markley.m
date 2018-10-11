@@ -13,6 +13,9 @@ M = size(Q,1);
 
 for i=1:M
     q = Q(i,:)';
+    if(q(1)<0) % handle the antipodal configuration
+		q = -q;
+	end
     A = q*q'+A; % rank 1 update
 end
 
