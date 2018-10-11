@@ -20,6 +20,9 @@ wSum = 0;
 
 for i=1:M
     q = Q(i,:)';
+    if(q(1)<0) % handle the antipodal configuration
+	    q = -q;
+    end
     w_i = weights(i);
     A=w_i.*(q*q')+A; % rank 1 update
     wSum = wSum + w_i;
